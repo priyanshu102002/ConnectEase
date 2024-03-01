@@ -2,6 +2,7 @@ import express from "express";
 import dotevn from "dotenv";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
@@ -12,6 +13,7 @@ const app = express();
 dotevn.config();
 const PORT = process.env.PORT || 8000;
 
+app.use(cors({ origin: process.env.ORIGIN, credentials: true }));
 app.use(express.json()); // req.body se data read krne k liye
 app.use(cookieParser()); // req.cookie se data read krne k liye
 
