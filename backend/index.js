@@ -3,12 +3,11 @@ import dotevn from "dotenv";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import { app, server } from "./socket/socket.js";
 
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
-
-const app = express();
 
 dotevn.config();
 const PORT = process.env.PORT || 8000;
@@ -30,6 +29,6 @@ mongoose
         console.log("Mongodb connection error", error);
     });
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

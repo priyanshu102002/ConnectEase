@@ -1,3 +1,4 @@
+// Redux ka alternative which is already present in React
 import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext();
